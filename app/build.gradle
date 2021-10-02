@@ -54,11 +54,6 @@ dependencies {
     // raw Dagger
     implementation "com.google.dagger:dagger:$daggerVersion"
     kapt "com.google.dagger:dagger-compiler:$daggerVersion"
-
-    // dagger.android
-    implementation "com.google.dagger:dagger-android:$daggerVersion"
-    implementation "com.google.dagger:dagger-android-support:$daggerVersion"
-    kapt "com.google.dagger:dagger-android-processor:$daggerVersion"
     
     // Hilt
     implementation "com.google.dagger:hilt-android:$daggerVersion"
