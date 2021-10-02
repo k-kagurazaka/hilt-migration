@@ -1,19 +1,23 @@
 package com.kkagurazaka.hilt.migration
 
+import android.app.Application
 import com.kkagurazaka.hilt.migration.di.ApplicationComponent
-import com.kkagurazaka.hilt.migration.di.DaggerApplicationComponent
 import dagger.android.AndroidInjector
-import dagger.android.support.DaggerApplication
+import dagger.android.DispatchingAndroidInjector
+import dagger.android.HasAndroidInjector
+import dagger.hilt.EntryPoints
+import dagger.hilt.android.HiltAndroidApp
+import javax.inject.Inject
 
-class App : DaggerApplication() {
-    val component: ApplicationComponent =
-        DaggerApplicationComponent.factory().create(this)
+@HiltAndroidApp
+class App : Application(), HasAndroidInjector {
+    @Inject
+    lateinit var androidInjector: DispatchingAndroidInjector<Any>
 
-    override fun onCreate() {
-        component.inject(this)
-        super.onCreate()
+    val component: ApplicationComponent by lazy {
+        EntryPoints.get(this, ApplicationComponent::class.java)
     }
 
-    override fun applicationInjector(): AndroidInjector<out DaggerApplication> =
-        component
+    override fun androidInjector(): AndroidInjector<Any> =
+        androidInjector
 }

@@ -2,26 +2,26 @@ package com.kkagurazaka.hilt.migration.di
 
 import com.kkagurazaka.hilt.migration.App
 import com.kkagurazaka.hilt.migration.ui.login.LoginActivityComponent
-import dagger.BindsInstance
-import dagger.Component
+import dagger.Module
 import dagger.android.AndroidInjectionModule
 import dagger.android.AndroidInjector
-import javax.inject.Singleton
+import dagger.hilt.EntryPoint
+import dagger.hilt.InstallIn
+import dagger.hilt.components.SingletonComponent
 
-@Singleton
-@Component(
-    modules = [
+@InstallIn(SingletonComponent::class)
+@EntryPoint
+interface ApplicationComponent : AndroidInjector<App> {
+    fun loginActivityComponent(): LoginActivityComponent.Factory
+}
+
+@InstallIn(SingletonComponent::class)
+@Module(
+    includes = [
         AndroidInjectionModule::class,
         ApplicationModule::class,
         RepositoryModule::class,
         ActivityModule::class,
     ]
 )
-interface ApplicationComponent : AndroidInjector<App> {
-    fun loginActivityComponent(): LoginActivityComponent.Factory
-
-    @Component.Factory
-    interface Factory {
-        fun create(@BindsInstance app: App): ApplicationComponent
-    }
-}
+interface AggregatorModule
