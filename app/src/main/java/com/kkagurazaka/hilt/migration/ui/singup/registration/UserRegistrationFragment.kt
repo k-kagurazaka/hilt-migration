@@ -3,13 +3,15 @@ package com.kkagurazaka.hilt.migration.ui.singup.registration
 import android.os.Bundle
 import android.view.View
 import android.widget.TextView
+import androidx.fragment.app.Fragment
 import com.kkagurazaka.hilt.migration.R
 import com.kkagurazaka.hilt.migration.ui.singup.SignupViewModel
-import dagger.android.support.DaggerFragment
+import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 import javax.inject.Provider
 
-class UserRegistrationFragment : DaggerFragment(R.layout.label_fragment) {
+@AndroidEntryPoint
+class UserRegistrationFragment : Fragment(R.layout.label_fragment) {
     @Inject
     lateinit var parentViewModel: SignupViewModel
 
