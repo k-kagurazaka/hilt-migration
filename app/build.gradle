@@ -45,16 +45,12 @@ dependencies {
 
     def daggerVersion = '2.39.1'
 
-    // raw Dagger
-    implementation "com.google.dagger:dagger:$daggerVersion"
-    kapt "com.google.dagger:dagger-compiler:$daggerVersion"
-    
     // Hilt
     implementation "com.google.dagger:hilt-android:$daggerVersion"
     kapt "com.google.dagger:hilt-compiler:$daggerVersion"
 
     // For instrumentation tests
-    androidTestImplementation  "com.google.dagger:hilt-android-testing:$daggerVersion"
+    androidTestImplementation "com.google.dagger:hilt-android-testing:$daggerVersion"
     kaptAndroidTest "com.google.dagger:hilt-compiler:$daggerVersion"
 
     // For local unit tests
