@@ -1,7 +1,6 @@
 package com.kkagurazaka.hilt.migration.di
 
 import com.kkagurazaka.hilt.migration.App
-import com.kkagurazaka.hilt.migration.ui.login.LoginActivityComponent
 import dagger.Module
 import dagger.android.AndroidInjectionModule
 import dagger.android.AndroidInjector
@@ -11,9 +10,7 @@ import dagger.hilt.components.SingletonComponent
 
 @InstallIn(SingletonComponent::class)
 @EntryPoint
-interface ApplicationComponent : AndroidInjector<App> {
-    fun loginActivityComponent(): LoginActivityComponent.Factory
-}
+interface ApplicationComponent : AndroidInjector<App>
 
 @InstallIn(SingletonComponent::class)
 @Module(

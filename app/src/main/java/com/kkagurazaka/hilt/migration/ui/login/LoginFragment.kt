@@ -7,21 +7,22 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.kkagurazaka.hilt.migration.R
 import com.thirdparty.ThirdPartyLibrary
+import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
-class LoginFragment: Fragment(R.layout.label_fragment) {
-    lateinit var component: LoginFragmentComponent
-
+@AndroidEntryPoint
+class LoginFragment : Fragment(R.layout.label_fragment) {
     @Inject
     lateinit var checkInjectionSuccess: ThirdPartyLibrary
 
+    @JvmField
+    @field:Inject
+    var activity: LoginActivity? = null
+
     override fun onAttach(context: Context) {
         super.onAttach(context)
-        component = (requireActivity() as LoginActivity).component
-            .loginFragmentComponent().create(this)
-        component.inject(this)
-
         checkInjectionSuccess.run()
+        requireNotNull(activity)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
