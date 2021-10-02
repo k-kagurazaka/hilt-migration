@@ -18,7 +18,6 @@ interface ApplicationComponent : AndroidInjector<App>
         AndroidInjectionModule::class,
         ApplicationModule::class,
         RepositoryModule::class,
-        ActivityModule::class,
     ]
 )
 interface AggregatorModule
