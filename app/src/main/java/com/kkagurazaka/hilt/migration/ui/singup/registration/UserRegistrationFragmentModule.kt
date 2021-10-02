@@ -1,18 +1,18 @@
 package com.kkagurazaka.hilt.migration.ui.singup.registration
 
 import androidx.lifecycle.ViewModelProvider
-import com.kkagurazaka.hilt.migration.di.FragmentScope
 import com.kkagurazaka.hilt.migration.ui.common.FragmentViewModelFactory
 import com.kkagurazaka.hilt.migration.ui.singup.email.EmailUserRegistrationViewModel
 import com.kkagurazaka.hilt.migration.ui.singup.sns.SnsUserRegistrationViewModel
 import dagger.Module
 import dagger.Provides
 import dagger.android.ContributesAndroidInjector
+import dagger.hilt.android.scopes.FragmentScoped
 import javax.inject.Provider
 
 @Module
 interface EmailSignupUserRegistrationFragmentModule {
-    @FragmentScope
+    @FragmentScoped
     @ContributesAndroidInjector(modules = [ViewModelModule::class])
     fun contributesUserRegistrationFragment(): UserRegistrationFragment
 
@@ -34,7 +34,7 @@ interface EmailSignupUserRegistrationFragmentModule {
 
 @Module
 interface SnsSignupUserRegistrationFragmentModule {
-    @FragmentScope
+    @FragmentScoped
     @ContributesAndroidInjector(modules = [ViewModelModule::class])
     fun contributesUserRegistrationFragment(): UserRegistrationFragment
 

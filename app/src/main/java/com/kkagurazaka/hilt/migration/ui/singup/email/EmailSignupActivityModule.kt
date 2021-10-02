@@ -1,18 +1,18 @@
 package com.kkagurazaka.hilt.migration.ui.singup.email
 
 import androidx.lifecycle.ViewModelProvider
-import com.kkagurazaka.hilt.migration.di.ActivityScope
 import com.kkagurazaka.hilt.migration.ui.common.ActivityViewModelFactory
-import com.kkagurazaka.hilt.migration.ui.singup.registration.EmailSignupUserRegistrationFragmentModule
 import com.kkagurazaka.hilt.migration.ui.singup.SignupViewModel
+import com.kkagurazaka.hilt.migration.ui.singup.registration.EmailSignupUserRegistrationFragmentModule
 import dagger.Module
 import dagger.Provides
 import dagger.android.ContributesAndroidInjector
+import dagger.hilt.android.scopes.ActivityScoped
 import javax.inject.Provider
 
 @Module
 interface EmailSignupActivityModule {
-    @ActivityScope
+    @ActivityScoped
     @ContributesAndroidInjector(
         modules = [
             ViewModelModule::class,

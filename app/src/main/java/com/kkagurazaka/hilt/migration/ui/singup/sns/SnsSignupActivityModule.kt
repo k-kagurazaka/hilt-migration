@@ -1,18 +1,18 @@
 package com.kkagurazaka.hilt.migration.ui.singup.sns
 
 import androidx.lifecycle.ViewModelProvider
-import com.kkagurazaka.hilt.migration.di.ActivityScope
 import com.kkagurazaka.hilt.migration.ui.common.ActivityViewModelFactory
 import com.kkagurazaka.hilt.migration.ui.singup.SignupViewModel
 import com.kkagurazaka.hilt.migration.ui.singup.registration.SnsSignupUserRegistrationFragmentModule
 import dagger.Module
 import dagger.Provides
 import dagger.android.ContributesAndroidInjector
+import dagger.hilt.android.scopes.ActivityScoped
 import javax.inject.Provider
 
 @Module
 interface SnsSignupActivityModule {
-    @ActivityScope
+    @ActivityScoped
     @ContributesAndroidInjector(
         modules = [
             ViewModelModule::class,

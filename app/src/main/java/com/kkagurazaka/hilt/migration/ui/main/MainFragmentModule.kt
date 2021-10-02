@@ -1,12 +1,12 @@
 package com.kkagurazaka.hilt.migration.ui.main
 
-import com.kkagurazaka.hilt.migration.di.FragmentScope
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
+import dagger.hilt.android.scopes.FragmentScoped
 
 @Module
 interface MainFragmentModule {
-    @FragmentScope
+    @FragmentScoped
     @ContributesAndroidInjector
     fun contributesMainFragment(): MainFragment
 }

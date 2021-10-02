@@ -1,10 +1,10 @@
 package com.kkagurazaka.hilt.migration.ui.login
 
-import com.kkagurazaka.hilt.migration.di.ActivityScope
 import dagger.BindsInstance
 import dagger.Subcomponent
+import dagger.hilt.android.scopes.ActivityScoped
 
-@ActivityScope
+@ActivityScoped
 @Subcomponent
 interface LoginActivityComponent {
     fun inject(activity: LoginActivity)

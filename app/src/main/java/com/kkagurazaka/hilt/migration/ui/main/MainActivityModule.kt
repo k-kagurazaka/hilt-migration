@@ -1,12 +1,12 @@
 package com.kkagurazaka.hilt.migration.ui.main
 
-import com.kkagurazaka.hilt.migration.di.ActivityScope
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
+import dagger.hilt.android.scopes.ActivityScoped
 
 @Module
 interface MainActivityModule {
-    @ActivityScope
+    @ActivityScoped
     @ContributesAndroidInjector(modules = [MainFragmentModule::class])
     fun contributesMainActivity(): MainActivity
 }
