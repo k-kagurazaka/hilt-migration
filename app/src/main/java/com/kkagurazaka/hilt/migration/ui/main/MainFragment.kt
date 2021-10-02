@@ -5,15 +5,17 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
+import androidx.fragment.app.Fragment
 import com.kkagurazaka.hilt.migration.R
 import com.kkagurazaka.hilt.migration.ui.login.LoginActivity
 import com.kkagurazaka.hilt.migration.ui.singup.email.EmailSignupActivity
 import com.kkagurazaka.hilt.migration.ui.singup.sns.SnsSignupActivity
 import com.thirdparty.ThirdPartyLibrary
-import dagger.android.support.DaggerFragment
+import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
-class MainFragment : DaggerFragment(R.layout.main_fragment) {
+@AndroidEntryPoint
+class MainFragment : Fragment(R.layout.main_fragment) {
     @Inject
     lateinit var checkInjectionSuccess: ThirdPartyLibrary
 
